@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> this is heading</h1>
+    <script>
+function createPost(post) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      
+      console.log(`Post created: ${post}`);
+      resolve(post);
+    }, 1000);
+  });
+}
+
+function updateLastUserActivityTime(user) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const currentTime = new Date().toLocaleTimeString();
+      console.log(`${user}'s last activity time updated: ${currentTime}`);
+      resolve(currentTime);
+    }, 1000);
+  });
+}
+
+
+function simulateUserInteraction() {
+  const user = 'sanjay';
+  const newPost = 'posted';
+
+  const createPostPromise = createPost(newPost);
+  const updateActivityPromise = updateLastUserActivityTime(user);
+
+  Promise.all([createPostPromise, updateActivityPromise])
+    .then(([createdPost, lastActivityTime,]) => {
+      console.log(`Post created: ${createdPost}, Last Activity Time: ${lastActivityTime}`);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+simulateUserInteraction();
+
+
+    </script>
+</body>
+</html>
