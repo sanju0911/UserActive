@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> this is heading</h1>
+    <script>
+
+  const usertimestatus = async() => {
+
+  const createPost1 =  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      
+      console.log(`Post created: ${post}`);
+      resolve(post);
+    }, 1000);
+  });
+
+
+    const delePost1 =  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      
+      console.log(`Post deleted: ${post}`);
+      resolve(post);
+    }, 1000);
+  });
+
+
+    const updateUserTime = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const currentTime = new Date().toLocaleTimeString();
+      console.log(`${user}'s last activity time updated: ${currentTime}`);
+      resolve(currentTime);
+    }, 1000);
+  });
+     let createPost = await createPost1 ;
+     let deletedPost = await delePost1;
+     let userTime = await updateUserTime;
+
+
+     return currentTime;
+  
+
+  }
+  const post = 'new post';
+  const user = 'sanjay';
+  const currentTime = new Date();
+
+   usertimestatus().then(()=>{
+      
+ 
+    console.log(`the last activity is performed at ${currentTime}`)
+   })
+ 
+  
+
+
+    </script>
+</body>
+</html>
